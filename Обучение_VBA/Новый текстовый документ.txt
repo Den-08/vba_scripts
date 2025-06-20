@@ -1,0 +1,59 @@
+harunjik@gmail.com
+https://disk.yandex.ru/d/sT_KuEUgw9Ot_g
+https://edu.softline.com/
+https://my.mts-link.ru/j/88804755/684180140
+1) перейти на сайт: http://my.academyit.ru/
+2) Ввести Ваши регистрационные данные:
+    Логин: 56967
+    Пароль: zc4TGlCj
+https://www.livelib.ru/author/14705/top-dzhon-uokenbah
+https://www.litres.ru/book/mayk-makgrat/excel-vba-stan-prodvinutym-polzovatelem-za-nedelu-67092765/
+
+
+
+
+Я немного уже работал с VBA, чтобы автоматизировать рутинные операции по перенесению данных с одной таблицы excel в другую (файлы импорта/экспорта систем АСКУЭ). Совмещал с записью макроса в графическом интерфейсе, вставлял куски записанного. Приводил в определенному формату импорта. Потом разбивал по необходимому количству строк.
+
+Private Sub Workbook_Open()
+Select Case Time
+    Case Is < 0.5, Is > 0.25
+        MsgBox "Доброе утро!"
+    Case Is < 0.75, Is > 0.5
+        MsgBox "Добрый день!"
+    Case Is < 1, Is > 0.75
+        MsgBox "Добрый вечер!"
+    Case Is < 1, Is < 0.25
+        MsgBox "Доброй ночи!"
+End Select
+End Sub
+
+
+Private Sub Workbook_Open()
+'Time возвращает время которое является долей от единицы суток
+Select Case Time
+    Case 7 / 24 To 12 / 24
+        MsgBox ("доброе утро")
+    Case 12 / 24 To 18 / 24
+        MsgBox ("добрый день")
+    Case 18 / 24 To 23 / 24
+        MsgBox ("добрый вечер")
+    Case 23 / 24 To 24 / 24, 0 / 24 To 7 / 24
+        MsgBox ("доброй ночи")
+End Select
+End Sub
+
+
+Private Sub Workbook_NewSheet(ByVal Sh As Object)
+'каждый раз после создания нового листа программа запрашивает имя для него
+'пользователь вводит имя листа с клавиатуры
+'макрос записывает это имя в название листа
+Dim listname As String
+listname = InputBox("введите название листа")
+If listname <> "" Then
+    ActiveSheet.Name = listname
+Else
+    MsgBox ("название листа не может быть пустым, название осталось по умолчанию")
+End If
+End Sub
+
+
